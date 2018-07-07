@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block content %}
+<table border='1' class='table-bordered table'>
+   <thead class="thead-dark">
+    <tr>
+        <th>S.No</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Vote</th>
+    </tr>
+    </thead>
+    {% for i in votes %}
+    <tr {%if i.votes < 0 %}
+       class="table-danger"
+        {%elif i.votes == 0 %}
+       class="table-warning"
+       {%else%}
+       class="table-success"
+        
+        
+         {%endif%}  >
+        <td>{{ forloop.counter }}</td>
+        <td>{{i.date}}</td>
+        <td>{{i.location}}</td>
+        <td>{{i.votes}}</td>
+    </tr>
+    
+    {%endfor%}
+</table>
+
+{% endblock content %}

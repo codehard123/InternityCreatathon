@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block content %}
+<table border='1' class='table-bordered table'>
+   <thead class="thead-dark">
+    <tr>
+        <th>S.No</th>
+        <th>Location Name</th>
+        <th>Number Of Dustbins</th>
+    </tr>
+    </thead>
+    {% for i in locations %}
+
+        <td>{{ forloop.counter }}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.number_of_dustbin}}</td>
+    </tr>
+    
+    {%endfor%}
+</table>
+
+{% endblock content %}
