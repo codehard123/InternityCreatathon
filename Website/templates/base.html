@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Waste Management || GITCODERS</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+</head>
+{% load static %}
+
+<body style="background-image: url({% static "images/background1.jpg" %}); background-size: cover;">
+ 
+  <h1 style="text-align: center;">Waste Management || GITCODERS</h1>
+  
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="/">Results</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/vote">Vote</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/locations">Locations</a>
+    </li>
+  </ul>
+
+</nav>
+ 
+   <div class="container" style="background-color: rgba(255, 255, 255, 0.71)" >
+   <div>&nbsp;</div>
+    {% block content %}
+    {% endblock content %}
+       <div>&nbsp;</div>
+   <div>&nbsp;</div>
+
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</html>
