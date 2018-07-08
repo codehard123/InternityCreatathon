@@ -11,19 +11,28 @@
         padding: 0px
     }
     </style>
-
+    Reload the page several time if result is not as needed. Some caching issue is there.
    <div id="map" style="border: 2px solid #3872ac;"></div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<script>
-    var MapPoints ='{"locations":[{"lat":28.564327,"lng":77.380004},{"lat":28.579393,"lng":77.377375},{"lat":28.576567,"lng":77.366899}]}'    
+<script>  
+    {% load static %}
+   
+
+//    var MapPoints ='{"locations":[{"lat":"28.564327","lng":"77.380004"},{"lat":"28.579393","lng":"77.377375"},{"lat":"28.576567","lng":"77.366899"}]}'    
 var MY_MAPTYPE_ID = 'custom_style';
 
 function myMap() {
 
     if (jQuery('#map').length > 0) {
 
-        var mydata = jQuery.parseJSON(MapPoints);
+        $.getJSON( "https://raw.githubusercontent.com/rajatjain1998/InternityCreatathon/master/testing_location_data.json", {
+
+    format: "json"
+  })
+    .done(function( mydata ) {
+         MapPoints=mydata;
         var locations=mydata.locations;
         window.map = new google.maps.Map(document.getElementById('map'), {
             mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -59,6 +68,8 @@ function myMap() {
                 strokeOpacity: 1.0,
                 strokeWeight: 2
             });
+      
+    });
 
         }
     }
@@ -69,5 +80,6 @@ function myMap() {
     
     <script>
     google.maps.event.addDomListener(window, 'load', myMap);
+            
     </script>
 {% endblock content %}
